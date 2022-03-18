@@ -34,6 +34,8 @@ class SubscriptionRepository
         ]))->toArray();
 
         $responses = Utils::all($promises)->wait();
+        error_log("testing from local");
+        error_log($responses);
 
         return collect($responses)
             ->flatmap(fn (array $result): array => $result['Items'])
